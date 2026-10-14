@@ -178,5 +178,15 @@ a{color:#A61E1E}a:hover{color:#6E1010}
 </footer>
 
 </div>
+<script>
+(function(){
+  function H(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight);}
+  function post(){try{parent.postMessage({pereplyasHeight:H()},'*');}catch(e){}}
+  window.addEventListener('load',post);
+  window.addEventListener('resize',post);
+  if(document.readyState!=='loading')post();
+  var n=0,t=setInterval(function(){post();if(++n>30)clearInterval(t);},400);
+})();
+</script>
 </body>
 </html>
